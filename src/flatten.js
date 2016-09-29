@@ -20,25 +20,32 @@ var DELIMITER = "/";
  * 
  */
 
-
 function flattenObject(obj, path) {
     if (path == undefined) {
         path = EMPTY_STRING;
     }
-        
 
     if (isArray(obj) || isObject(obj)) {
         var d = {};
-        for (var i in obj) {
 
-            var newD = flattenObject(obj[i], path + i + DELIMITER);
+        for (var key in obj) {
+            // TODO: extract into method?
+            var keyPath = [
+                path,
+                key,
+                DELIMITER
+            ].join('');
+
+            // Recursive flatten call
+            var newD = flattenObject(obj[key], keyPath);
+
             $.extend(d, newD);
         }
 
         return d;
     } else if (isScalar(obj)) {
         var d = {};
-        var endPath = path.substr(0, path.length-1);
+        var endPath = path.substr(0, path.length - 1);
         d[endPath] = obj;
         return d;
     }
@@ -90,7 +97,7 @@ function isScalar(value) {
     var type = $.type(value);
 
     return (type == "number" ||
-            type == "string" ||
-            type == "boolean" ||
-            type == "null");
+        type == "string" ||
+        type == "boolean" ||
+        type == "null");
 }
