@@ -25,9 +25,10 @@ function flattenObject(obj, path) {
         path = EMPTY_STRING;
     }
 
-    if (isArray(obj) || isObject(obj)) {
-        var d = {};
+    // TODO: Create improved name
+    var d = {};
 
+    if (isArray(obj) || isObject(obj)) {
         for (var key in obj) {
             // TODO: extract into method?
             var keyPath = [
@@ -42,16 +43,13 @@ function flattenObject(obj, path) {
             $.extend(d, newD);
         }
 
-        return d;
+
     } else if (isScalar(obj)) {
-        var d = {};
         var endPath = path.substr(0, path.length - 1);
         d[endPath] = obj;
-        return d;
     }
 
-    // ?
-    else return {};
+    return d;
 }
 
 
