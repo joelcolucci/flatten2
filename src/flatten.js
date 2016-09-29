@@ -20,10 +20,7 @@ function flattenObject(obj, path) {
     if (path == undefined)
         path = "";
 
-    var type = $.type(obj);
-    var scalar = (type == "number" || type == "string" || type == "boolean" || type == "null");
-
-    if (type == "array" || type == "object") {
+    if (isArray(obj) || isObject(obj)) {
         var d = {};
         for (var i in obj) {
 
@@ -32,9 +29,7 @@ function flattenObject(obj, path) {
         }
 
         return d;
-    }
-
-    else if (scalar) {
+    } else if (isScalar(obj)) {
         var d = {};
         var endPath = path.substr(0, path.length-1);
         d[endPath] = obj;
