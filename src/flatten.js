@@ -4,7 +4,11 @@
  * Konklone JSON - https://github.com/konklone/json/blob/gh-pages/assets/site.js#L28-L55
  * onyxfish csvkit - https://github.com/onyxfish/csvkit/blob/61b9c208b7665c20e9a8e95ba6eee811d04705f0/csvkit/convert/js.py#L15-L34
  * 
- * /
+ */
+
+
+var EMPTY_STRING = "";
+var DELIMITER = "/";
 
 
 /**
@@ -16,15 +20,18 @@
  * 
  */
 
+
 function flattenObject(obj, path) {
-    if (path == undefined)
-        path = "";
+    if (path == undefined) {
+        path = EMPTY_STRING;
+    }
+        
 
     if (isArray(obj) || isObject(obj)) {
         var d = {};
         for (var i in obj) {
 
-            var newD = flattenObject(obj[i], path + i + "/");
+            var newD = flattenObject(obj[i], path + i + DELIMITER);
             $.extend(d, newD);
         }
 
