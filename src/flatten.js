@@ -46,10 +46,33 @@ function flattenObject(obj, path) {
 
     } else if (isScalar(obj)) {
         var endPath = path.substr(0, path.length - 1);
+
         d[endPath] = obj;
     }
 
     return d;
+}
+
+
+/**
+ * 
+ * flattenMany
+ * @param {array} data
+ * @return {array}
+ * 
+ */
+
+function flattenMany(data) {
+    var flattenedObjects = [];
+
+    for (var i = 0; i < data.length; i++) {
+        var currentObject = data[i];
+        var flatObject = flattenObject(currentObject);
+
+        flattenedObjects.push(flatObject);
+    }
+
+    return flattenedObjects;
 }
 
 
