@@ -25,28 +25,19 @@ function flatten(obj, path) {
         path = EMPTY_STRING;
     }
 
-    // TODO: Create improved name
+    // TODO: Improve name of variable
     var d = {};
 
     if (isArray(obj) || isObject(obj)) {
         for (var key in obj) {
-            // TODO: extract into method?
-            var keyPath = [
-                path,
-                key,
-                DELIMITER
-            ].join('');
-
-            // Recursive flatten call
-            var newD = flatten(obj[key], keyPath);
-
+            var newKey = _createKeyString(path, key, DELIMITER);
+            
+            var newD = flatten(obj[key], newKey); // Recursive call
+            
             $.extend(d, newD);
         }
-
-
     } else if (isScalar(obj)) {
         var endPath = _stripRight(path, DELIMITER);
-
         d[endPath] = obj;
     }
 
@@ -67,12 +58,32 @@ function flattenMany(data) {
 
     for (var i = 0; i < data.length; i++) {
         var currentObject = data[i];
+
         var flatObject = flatten(currentObject);
 
         flattenedObjects.push(flatObject);
     }
 
     return flattenedObjects;
+}
+
+
+/**
+ * 
+ * _createKeyString
+ * @param {string} path
+ * @param {string} key
+ * @param {string} delimiter
+ * @return {string}
+ * 
+ */
+
+function _createKeyString(path, key, delimiter) {
+    return [
+        path,
+        key,
+        DELIMITER
+    ].join('');
 }
 
 
