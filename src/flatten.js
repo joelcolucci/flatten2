@@ -28,7 +28,7 @@ function flatten(obj, path) {
     // TODO: Improve name of variable
     var d = {};
 
-    if (isArray(obj) || isObject(obj)) {
+    if (_isArray(obj) || _isObject(obj)) {
         for (var key in obj) {
             var newKey = _createKeyString(path, key, DELIMITER);
             
@@ -36,7 +36,7 @@ function flatten(obj, path) {
             
             $.extend(d, newD);
         }
-    } else if (isScalar(obj)) {
+    } else if (_isScalar(obj)) {
         var endPath = _stripRight(path, DELIMITER);
         d[endPath] = obj;
     }
@@ -110,13 +110,13 @@ function _stripRight(str, match) {
 
 /**
  * 
- * isArray
+ * _isArray
  * @param {}
  * @return {boolean}
  * 
  */
 
-function isArray(value) {
+function _isArray(value) {
     var type = $.type(value);
 
     return type === 'array';
@@ -125,13 +125,13 @@ function isArray(value) {
 
 /**
  * 
- * isObject
+ * _isObject
  * @param {}
  * @return {boolean}
  * 
  */
 
-function isObject(value) {
+function _isObject(value) {
     var type = $.type(value);
 
     return type === 'object';
@@ -140,13 +140,13 @@ function isObject(value) {
 
 /**
  * 
- * isScalar
+ * _isScalar
  * @param {}
  * @return {boolean}
  * 
  */
 
-function isScalar(value) {
+function _isScalar(value) {
     var type = $.type(value);
 
     return (type == "number" ||

@@ -153,7 +153,7 @@ describe('flattenMany', function() {
     });
 
 
-    describe('isScalar', function() {
+    describe('_isScalar', function() {
 
         var scalars;
 
@@ -167,25 +167,25 @@ describe('flattenMany', function() {
         });
 
         it('should return true when passed number', function() {
-            expect(isScalar(scalars.myNumber)).toBe(true);
+            expect(_isScalar(scalars.myNumber)).toBe(true);
         });
 
         it('should return true when passed boolean', function() {
-            expect(isScalar(scalars.myBoolean)).toBe(true);
+            expect(_isScalar(scalars.myBoolean)).toBe(true);
         });
 
         it('should return true when passed string', function() {
-            expect(isScalar(scalars.myString)).toBe(true);
+            expect(_isScalar(scalars.myString)).toBe(true);
         });
 
         it('should return true when passed null', function() {
-            expect(isScalar(scalars.myNull)).toBe(true);
+            expect(_isScalar(scalars.myNull)).toBe(true);
         });
     
     });
 
 
-    describe('isArray', function() {
+    describe('_isArray', function() {
 
         var scalars;
 
@@ -201,21 +201,21 @@ describe('flattenMany', function() {
         it('should return true when passed array', function() {
             var myArray = [];
 
-            expect(isArray(myArray)).toBe(true);
+            expect(_isArray(myArray)).toBe(true);
         });
 
         it('should return false when passed scalar or object', function() {
-            expect(isArray(scalars.myNumber)).toBe(false);
-            expect(isArray(scalars.myBoolean)).toBe(false);
-            expect(isArray(scalars.myString)).toBe(false);
-            expect(isArray(scalars.myNull)).toBe(false);
-            expect(isArray({})).toBe(false);
+            expect(_isArray(scalars.myNumber)).toBe(false);
+            expect(_isArray(scalars.myBoolean)).toBe(false);
+            expect(_isArray(scalars.myString)).toBe(false);
+            expect(_isArray(scalars.myNull)).toBe(false);
+            expect(_isArray({})).toBe(false);
         });
 
     });
 
 
-    describe('isObject', function() {
+    describe('_isObject', function() {
 
         var scalars;
 
@@ -231,15 +231,15 @@ describe('flattenMany', function() {
         it('should return true when passed object', function() {
             var myObject = {};
 
-            expect(isObject(myObject)).toBe(true);
+            expect(_isObject(myObject)).toBe(true);
         });
 
         it('should return false when passed scalar or array', function() {
-            expect(isObject(scalars.myNumber)).toBe(false);
-            expect(isObject(scalars.myBoolean)).toBe(false);
-            expect(isObject(scalars.myString)).toBe(false);
-            expect(isObject(scalars.myNull)).toBe(false);
-            expect(isObject([])).toBe(false);
+            expect(_isObject(scalars.myNumber)).toBe(false);
+            expect(_isObject(scalars.myBoolean)).toBe(false);
+            expect(_isObject(scalars.myString)).toBe(false);
+            expect(_isObject(scalars.myNull)).toBe(false);
+            expect(_isObject([])).toBe(false);
         });
 
     });
