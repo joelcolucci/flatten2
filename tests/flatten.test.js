@@ -70,14 +70,16 @@ describe('flattenMany', function() {
                     "title": "Creativity Inc",
                     "author": "Ed Catmull",
                     "meta": {
-                        "keywords": "business"
+                        "keywords": "business,leadership",
+                        "genre": "businees"
                     }
                 },
                 {
                     "title": "Ego is the Enemy",
                     "author": "Ryan Holiday",
                     "meta": {
-                        "keywords": "philosophy"
+                        "keywords": "philosophy",
+                        "genre": "philosophy"
                     }
                 }
             ]; 
