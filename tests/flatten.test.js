@@ -104,6 +104,32 @@ describe('flattenMany', function() {
     });
 
 
+    describe('_stripRight', function() {
+        var DELIMITER,
+        STR;
+
+        beforeEach(function() {
+            DELIMITER = '/';
+            STR = 'hello/world/';
+        });
+
+        it('should remove right most char if delimiter', function() {
+            var strippedPath = _stripRight(STR, DELIMITER);
+
+            expect(strippedPath).toBe('hello/world'); 
+        });
+
+        it('should return original string if right most char is not delimter', function() {
+            var notUsedChar = '!';
+            
+            var strippedPath = _stripRight(STR, notUsedChar);
+
+            expect(strippedPath).toBe('hello/world/'); 
+        });
+    
+    });
+
+
     describe('isScalar', function() {
 
         var scalars;
