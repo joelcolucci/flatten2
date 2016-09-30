@@ -29,9 +29,9 @@ function flatten(obj, path) {
 
     if (_isArray(obj) || _isObject(obj)) {
         for (var key in obj) {
-            var newKey = _createKeyString(path, key, DELIMITER);
+            var keyPath = _createKeyPath(path, key, DELIMITER);
             
-            var flattenedObject = flatten(obj[key], newKey); // Recursive call
+            var flattenedObject = flatten(obj[key], keyPath); // Recursive call
             
             $.extend(result, flattenedObject);
         }
@@ -69,7 +69,7 @@ function flattenMany(data) {
 
 /**
  * 
- * _createKeyString
+ * _createKeyPath
  * @param {string} path
  * @param {string} key
  * @param {string} delimiter
@@ -77,7 +77,7 @@ function flattenMany(data) {
  * 
  */
 
-function _createKeyString(path, key, delimiter) {
+function _createKeyPath(path, key, delimiter) {
     return [
         path,
         key,

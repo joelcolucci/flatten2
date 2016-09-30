@@ -105,7 +105,7 @@ describe('flattenMany', function() {
     });
 
 
-    describe('_createKeyString', function() {
+    describe('_createKeyPath', function() {
 
         var PATH,
         KEY,
@@ -118,7 +118,7 @@ describe('flattenMany', function() {
         });
 
         it('should concat args', function() {
-            var keyPath = _createKeyString(PATH, KEY, DELIMITER);
+            var keyPath = _createKeyPath(PATH, KEY, DELIMITER);
 
             expect(keyPath).toBe('hello/world/'); 
         });
