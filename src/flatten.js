@@ -20,7 +20,7 @@ var DELIMITER = "/";
  * 
  */
 
-function flattenObject(obj, path) {
+function flatten(obj, path) {
     if (path == undefined) {
         path = EMPTY_STRING;
     }
@@ -38,7 +38,7 @@ function flattenObject(obj, path) {
             ].join('');
 
             // Recursive flatten call
-            var newD = flattenObject(obj[key], keyPath);
+            var newD = flatten(obj[key], keyPath);
 
             $.extend(d, newD);
         }
@@ -67,7 +67,7 @@ function flattenMany(data) {
 
     for (var i = 0; i < data.length; i++) {
         var currentObject = data[i];
-        var flatObject = flattenObject(currentObject);
+        var flatObject = flatten(currentObject);
 
         flattenedObjects.push(flatObject);
     }

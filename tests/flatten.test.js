@@ -1,7 +1,7 @@
 describe('flatten', function() {
 
 
-    describe('flattenObject', function() {
+    describe('flatten', function() {
     
         var data,
         flattenedData;
@@ -26,7 +26,7 @@ describe('flatten', function() {
                 }
             };
 
-            flattenedData = flattenObject(data);
+            flattenedData = flatten(data);
         });
 
         it('should concat nested object keys', function() {
