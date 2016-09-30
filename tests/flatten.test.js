@@ -62,6 +62,7 @@ describe('flatten', function() {
 
 
 describe('flattenMany', function() {
+
         var data;
 
         beforeEach(function() {
@@ -104,7 +105,29 @@ describe('flattenMany', function() {
     });
 
 
+    describe('_createKeyString', function() {
+
+        var PATH,
+        KEY,
+        DELIMITER;
+
+        beforeEach(function() {
+            PATH = 'hello/';
+            KEY = 'world';
+            DELIMITER = '/';
+        });
+
+        it('should concat args', function() {
+            var keyPath = _createKeyString(PATH, KEY, DELIMITER);
+
+            expect(keyPath).toBe('hello/world/'); 
+        });
+    
+    });
+
+
     describe('_stripRight', function() {
+
         var DELIMITER,
         STR;
 
