@@ -45,7 +45,7 @@ function flatten(obj, path) {
 
 
     } else if (isScalar(obj)) {
-        var endPath = path.substr(0, path.length - 1);
+        var endPath = _stripRight(path, DELIMITER);
 
         d[endPath] = obj;
     }
@@ -73,6 +73,27 @@ function flattenMany(data) {
     }
 
     return flattenedObjects;
+}
+
+
+/**
+ * 
+ * _stripRight
+ * @param {string} str
+ * @param {string} match
+ * @return {string}
+ * 
+ */
+
+function _stripRight(str, match) {
+    var START_INDEX = 0;
+    var END_INDEX = str.length - 1;
+
+    if (str[END_INDEX] === match) {
+        return str.substr(START_INDEX, END_INDEX); 
+    }
+
+    return str;
 }
 
 
