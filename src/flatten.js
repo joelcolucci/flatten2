@@ -25,23 +25,22 @@ function flatten(obj, path) {
         path = EMPTY_STRING;
     }
 
-    // TODO: Improve name of variable
-    var d = {};
+    var result = {};
 
     if (_isArray(obj) || _isObject(obj)) {
         for (var key in obj) {
             var newKey = _createKeyString(path, key, DELIMITER);
             
-            var newD = flatten(obj[key], newKey); // Recursive call
+            var flattenedObject = flatten(obj[key], newKey); // Recursive call
             
-            $.extend(d, newD);
+            $.extend(result, flattenedObject);
         }
     } else if (_isScalar(obj)) {
         var endPath = _stripRight(path, DELIMITER);
-        d[endPath] = obj;
+        result[endPath] = obj;
     }
 
-    return d;
+    return result;
 }
 
 
