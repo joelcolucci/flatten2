@@ -61,6 +61,47 @@ describe('flatten', function() {
     });
 
 
+describe('flattenMany', function() {
+        var data;
+
+        beforeEach(function() {
+            data = [
+                {
+                    "title": "Creativity Inc",
+                    "author": "Ed Catmull",
+                    "meta": {
+                        "keywords": "business"
+                    }
+                },
+                {
+                    "title": "Ego is the Enemy",
+                    "author": "Ryan Holiday",
+                    "meta": {
+                        "keywords": "philosophy"
+                    }
+                }
+            ]; 
+        });
+
+        it('flatten all objects in an array', function() {
+            var flattenedData = flattenMany(data);
+
+            var isAllFlattened = true;
+
+            for (var i = 0, n = flattenedData.length; i < n; i++) {
+                var currentObject = flattenedData[i];
+                if (!isFlattened(currentObject)) {
+                    isAllFlattened = false;
+                    break;
+                }
+            }
+
+            expect(isAllFlattened).toBe(true);
+        });
+
+    });
+
+
     describe('isScalar', function() {
 
         var scalars;
