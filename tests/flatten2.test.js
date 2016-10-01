@@ -1,4 +1,4 @@
-describe('flatten', function() {
+describe('flatten2', function() {
 
 
     describe('flatten', function() {
