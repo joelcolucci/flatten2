@@ -1,10 +1,11 @@
 {
   "name": "flatten2",
   "version": "0.1.0",
-  "description": "Flatten JavaScript objects",
+  "description": "Flatten nested JavaScript objects",
   "main": "./dist/flatten2.js",
   "keywords": [
     "flatten",
+    "nested",
     "objects",
     "recursion"
   ],

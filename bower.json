@@ -1,6 +1,6 @@
 {
   "name": "flatten2",
-  "description": "Flatten JavaScript objects",
+  "description": "Flatten nested JavaScript objects",
   "main": "./dist/flatten2.js",
   "authors": [
     "Joel Colucci"
@@ -20,6 +20,7 @@
   "devDependencies": {},
   "keywords": [
     "flatten",
+    "nested",
     "objects",
     "recursion"
   ],
