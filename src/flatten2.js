@@ -6,157 +6,154 @@
  *
  */
 
+'use strict';
 
-// (function(undefined) {
-  'use strict';
+var f2 = f2 || {};
 
-  var f2 = f2 || {};
-
-
-  var EMPTY_STRING = "";
-  var DELIMITER = "/";
+f2.defaults = {
+  delimiter: '/'
+};
 
 
-  /**
-   *
-   * flattenObect
-   * @param {object} obj - to flattening
-   * @param {string} path - key path to current key
-   * @returns {object}
-   *
-   */
+/**
+ *
+ * flattenObect
+ * @param {object} obj - to flattening
+ * @param {string} path - key path to current key
+ * @returns {object}
+ *
+ */
 
-  f2.flatten = function(obj, path) {
-    if (path == undefined) {
-      path = EMPTY_STRING;
+f2.flatten = function(obj, path) {
+  if (path == undefined) {
+    path = "";
+  }
+
+  var result = {};
+
+  if (f2._isArray(obj) || f2._isObject(obj)) {
+    for (var key in obj) {
+      var keyPath = f2._createKeyPath(path, key, f2.defaults.delimiter);
+
+      var flattenedObject = f2.flatten(obj[key], keyPath); // Recursive call
+
+      $.extend(result, flattenedObject);
     }
+  } else if (f2._isScalar(obj)) {
+    var endPath = f2._stripRight(path, f2.defaults.delimiter);
+    result[endPath] = obj;
+  }
 
-    var result = {};
-
-    if (f2._isArray(obj) || f2._isObject(obj)) {
-      for (var key in obj) {
-        var keyPath = f2._createKeyPath(path, key, DELIMITER);
-
-        var flattenedObject = f2.flatten(obj[key], keyPath); // Recursive call
-
-        $.extend(result, flattenedObject);
-      }
-    } else if (f2._isScalar(obj)) {
-      var endPath = f2._stripRight(path, DELIMITER);
-      result[endPath] = obj;
-    }
-
-    return result;
-  };
+  return result;
+};
 
 
-  /**
-   *
-   * flattenMany
-   * @param {array} data
-   * @return {array}
-   *
-   */
+/**
+ *
+ * flattenMany
+ * @param {array} data
+ * @return {array}
+ *
+ */
 
-  f2.flattenMany = function(data) {
-    var flattenedObjects = [];
+f2.flattenMany = function(data) {
+  var flattenedObjects = [];
 
-    for (var i = 0; i < data.length; i++) {
-      var currentObject = data[i];
+  for (var i = 0; i < data.length; i++) {
+    var currentObject = data[i];
 
-      var flatObject = f2.flatten(currentObject);
+    var flatObject = f2.flatten(currentObject);
 
-      flattenedObjects.push(flatObject);
-    }
+    flattenedObjects.push(flatObject);
+  }
 
-    return flattenedObjects;
-  };
-
-
-  /**
-   *
-   * _createKeyPath
-   * @param {string} path
-   * @param {string} key
-   * @param {string} delimiter
-   * @return {string}
-   *
-   */
-
-  f2._createKeyPath = function(path, key, delimiter) {
-    return [
-      path,
-      key,
-      DELIMITER
-    ].join('');
-  };
+  return flattenedObjects;
+};
 
 
-  /**
-   *
-   * _stripRight
-   * @param {string} str
-   * @param {string} match
-   * @return {string}
-   *
-   */
+/**
+ *
+ * _createKeyPath
+ * @param {string} path
+ * @param {string} key
+ * @param {string} delimiter
+ * @return {string}
+ *
+ */
 
-  f2._stripRight = function(str, match) {
-    var START_INDEX = 0;
-    var END_INDEX = str.length - 1;
-
-    if (str[END_INDEX] === match) {
-      return str.substr(START_INDEX, END_INDEX);
-    }
-
-    return str;
-  };
+f2._createKeyPath = function(path, key, delimiter) {
+  return [
+    path,
+    key,
+    f2.defaults.delimiter
+  ].join('');
+};
 
 
-  /**
-   *
-   * _isArray
-   * @param {}
-   * @return {boolean}
-   *
-   */
+/**
+ *
+ * _stripRight
+ * @param {string} str
+ * @param {string} match
+ * @return {string}
+ *
+ */
 
-  f2._isArray = function(value) {
-    var type = $.type(value);
+f2._stripRight = function(str, match) {
+  var START_INDEX = 0;
+  var END_INDEX = str.length - 1;
 
-    return type === 'array';
-  };
+  if (str[END_INDEX] === match) {
+    return str.substr(START_INDEX, END_INDEX);
+  }
 
-
-  /**
-   *
-   * _isObject
-   * @param {}
-   * @return {boolean}
-   *
-   */
-
-  f2._isObject = function(value) {
-    var type = $.type(value);
-
-    return type === 'object';
-  };
+  return str;
+};
 
 
-  /**
-   *
-   * _isScalar
-   * @param {}
-   * @return {boolean}
-   *
-   */
+/**
+ *
+ * _isArray
+ * @param {}
+ * @return {boolean}
+ *
+ */
 
-  f2._isScalar = function(value) {
-    var type = $.type(value);
+f2._isArray = function(value) {
+  var type = $.type(value);
 
-    return (type === "number" ||
-      type === "string" ||
-      type === "boolean" ||
-      type === "null");
-  };
-// })(this);
+  return type === 'array';
+};
+
+
+/**
+ *
+ * _isObject
+ * @param {}
+ * @return {boolean}
+ *
+ */
+
+f2._isObject = function(value) {
+  var type = $.type(value);
+
+  return type === 'object';
+};
+
+
+/**
+ *
+ * _isScalar
+ * @param {}
+ * @return {boolean}
+ *
+ */
+
+f2._isScalar = function(value) {
+  var type = $.type(value);
+
+  return (type === "number" ||
+    type === "string" ||
+    type === "boolean" ||
+    type === "null");
+};
