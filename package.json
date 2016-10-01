@@ -1,0 +1,38 @@
+{
+  "name": "flatten2",
+  "version": "0.1.0",
+  "description": "Flatten JavaScript objects",
+  "main": "./dist/flatten2.js",
+  "keywords": [
+    "flatten",
+    "objects",
+    "recursion"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "jasmine": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelcolucci/flatten2.git"
+  },
+  "author": {
+    "name" : "Joel Colucci",
+    "url" : "http://joelcolucci.com"
+},
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelcolucci/flatten2issues"
+  },
+  "homepage": "https://github.com/joelcolucci/flatten2#readme"
+}
