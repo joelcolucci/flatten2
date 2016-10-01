@@ -12,6 +12,8 @@
     "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "eslint": "^3.7.0",
+    "eslint-config-google": "^0.6.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "jasmine": "^2.5.2",
@@ -27,9 +29,9 @@
     "url": "git+https://github.com/joelcolucci/flatten2.git"
   },
   "author": {
-    "name" : "Joel Colucci",
-    "url" : "http://joelcolucci.com"
-},
+    "name": "Joel Colucci",
+    "url": "http://joelcolucci.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/joelcolucci/flatten2issues"
