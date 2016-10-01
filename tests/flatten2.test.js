@@ -25,7 +25,7 @@ describe('flatten2', function() {
         }
       };
 
-      flattenedData = f2.flatten(data);
+      flattenedData = flatten2.flatten(data);
     });
 
     it('should concat nested object keys', function() {
@@ -85,7 +85,7 @@ describe('flatten2', function() {
     });
 
     it('flatten all objects in an array', function() {
-      var flattenedData = f2.flattenMany(data);
+      var flattenedData = flatten2.flattenMany(data);
 
       var isAllFlattened = true;
 
@@ -116,7 +116,7 @@ describe('flatten2', function() {
     });
 
     it('should concat args', function() {
-      var keyPath = f2._createKeyPath(PATH, KEY, DELIMITER);
+      var keyPath = flatten2._createKeyPath(PATH, KEY, DELIMITER);
 
       expect(keyPath).toBe('hello/world/');
     });
@@ -135,7 +135,7 @@ describe('flatten2', function() {
     });
 
     it('should remove right most char if delimiter', function() {
-      var strippedPath = f2._stripRight(STR, DELIMITER);
+      var strippedPath = flatten2._stripRight(STR, DELIMITER);
 
       expect(strippedPath).toBe('hello/world');
     });
@@ -143,7 +143,7 @@ describe('flatten2', function() {
     it('should return original string if right most char is not delimter', function() {
       var notUsedChar = '!';
 
-      var strippedPath = f2._stripRight(STR, notUsedChar);
+      var strippedPath = flatten2._stripRight(STR, notUsedChar);
 
       expect(strippedPath).toBe('hello/world/');
     });
@@ -165,19 +165,19 @@ describe('flatten2', function() {
     });
 
     it('should return true when passed number', function() {
-      expect(f2._isScalar(scalars.myNumber)).toBe(true);
+      expect(flatten2._isScalar(scalars.myNumber)).toBe(true);
     });
 
     it('should return true when passed boolean', function() {
-      expect(f2._isScalar(scalars.myBoolean)).toBe(true);
+      expect(flatten2._isScalar(scalars.myBoolean)).toBe(true);
     });
 
     it('should return true when passed string', function() {
-      expect(f2._isScalar(scalars.myString)).toBe(true);
+      expect(flatten2._isScalar(scalars.myString)).toBe(true);
     });
 
     it('should return true when passed null', function() {
-      expect(f2._isScalar(scalars.myNull)).toBe(true);
+      expect(flatten2._isScalar(scalars.myNull)).toBe(true);
     });
 
   });
@@ -199,15 +199,15 @@ describe('flatten2', function() {
     it('should return true when passed array', function() {
       var myArray = [];
 
-      expect(f2._isArray(myArray)).toBe(true);
+      expect(flatten2._isArray(myArray)).toBe(true);
     });
 
     it('should return false when passed scalar or object', function() {
-      expect(f2._isArray(scalars.myNumber)).toBe(false);
-      expect(f2._isArray(scalars.myBoolean)).toBe(false);
-      expect(f2._isArray(scalars.myString)).toBe(false);
-      expect(f2._isArray(scalars.myNull)).toBe(false);
-      expect(f2._isArray({})).toBe(false);
+      expect(flatten2._isArray(scalars.myNumber)).toBe(false);
+      expect(flatten2._isArray(scalars.myBoolean)).toBe(false);
+      expect(flatten2._isArray(scalars.myString)).toBe(false);
+      expect(flatten2._isArray(scalars.myNull)).toBe(false);
+      expect(flatten2._isArray({})).toBe(false);
     });
 
   });
@@ -229,15 +229,15 @@ describe('flatten2', function() {
     it('should return true when passed object', function() {
       var myObject = {};
 
-      expect(f2._isObject(myObject)).toBe(true);
+      expect(flatten2._isObject(myObject)).toBe(true);
     });
 
     it('should return false when passed scalar or array', function() {
-      expect(f2._isObject(scalars.myNumber)).toBe(false);
-      expect(f2._isObject(scalars.myBoolean)).toBe(false);
-      expect(f2._isObject(scalars.myString)).toBe(false);
-      expect(f2._isObject(scalars.myNull)).toBe(false);
-      expect(f2._isObject([])).toBe(false);
+      expect(flatten2._isObject(scalars.myNumber)).toBe(false);
+      expect(flatten2._isObject(scalars.myBoolean)).toBe(false);
+      expect(flatten2._isObject(scalars.myString)).toBe(false);
+      expect(flatten2._isObject(scalars.myNull)).toBe(false);
+      expect(flatten2._isObject([])).toBe(false);
     });
 
   });

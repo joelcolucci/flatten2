@@ -8,9 +8,9 @@
 
 'use strict';
 
-var f2 = f2 || {};
+var flatten2 = flatten2 || {};
 
-f2.defaults = {
+flatten2.defaults = {
   delimiter: '/'
 };
 
@@ -24,23 +24,23 @@ f2.defaults = {
  *
  */
 
-f2.flatten = function(obj, path) {
+flatten2.flatten = function(obj, path) {
   if (path == undefined) {
     path = "";
   }
 
   var result = {};
 
-  if (f2._isArray(obj) || f2._isObject(obj)) {
+  if (flatten2._isArray(obj) || flatten2._isObject(obj)) {
     for (var key in obj) {
-      var keyPath = f2._createKeyPath(path, key, f2.defaults.delimiter);
+      var keyPath = flatten2._createKeyPath(path, key, flatten2.defaults.delimiter);
 
-      var flattenedObject = f2.flatten(obj[key], keyPath); // Recursive call
+      var flattenedObject = flatten2.flatten(obj[key], keyPath); // Recursive call
 
       $.extend(result, flattenedObject);
     }
-  } else if (f2._isScalar(obj)) {
-    var endPath = f2._stripRight(path, f2.defaults.delimiter);
+  } else if (flatten2._isScalar(obj)) {
+    var endPath = flatten2._stripRight(path, flatten2.defaults.delimiter);
     result[endPath] = obj;
   }
 
@@ -56,13 +56,13 @@ f2.flatten = function(obj, path) {
  *
  */
 
-f2.flattenMany = function(data) {
+flatten2.flattenMany = function(data) {
   var flattenedObjects = [];
 
   for (var i = 0; i < data.length; i++) {
     var currentObject = data[i];
 
-    var flatObject = f2.flatten(currentObject);
+    var flatObject = flatten2.flatten(currentObject);
 
     flattenedObjects.push(flatObject);
   }
@@ -81,11 +81,11 @@ f2.flattenMany = function(data) {
  *
  */
 
-f2._createKeyPath = function(path, key, delimiter) {
+flatten2._createKeyPath = function(path, key, delimiter) {
   return [
     path,
     key,
-    f2.defaults.delimiter
+    flatten2.defaults.delimiter
   ].join('');
 };
 
@@ -99,7 +99,7 @@ f2._createKeyPath = function(path, key, delimiter) {
  *
  */
 
-f2._stripRight = function(str, match) {
+flatten2._stripRight = function(str, match) {
   var START_INDEX = 0;
   var END_INDEX = str.length - 1;
 
@@ -119,7 +119,7 @@ f2._stripRight = function(str, match) {
  *
  */
 
-f2._isArray = function(value) {
+flatten2._isArray = function(value) {
   var type = $.type(value);
 
   return type === 'array';
@@ -134,7 +134,7 @@ f2._isArray = function(value) {
  *
  */
 
-f2._isObject = function(value) {
+flatten2._isObject = function(value) {
   var type = $.type(value);
 
   return type === 'object';
@@ -149,7 +149,7 @@ f2._isObject = function(value) {
  *
  */
 
-f2._isScalar = function(value) {
+flatten2._isScalar = function(value) {
   var type = $.type(value);
 
   return (type === "number" ||
