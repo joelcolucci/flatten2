@@ -1,4 +1,4 @@
-# flatten2 [![Build Status](https://travis-ci.org/joelcolucci/flatten2.svg?branch=master)](https://travis-ci.org/joelcolucci/flatten2)
+# flatten2 [![Build Status](https://travis-ci.org/joelcolucci/flatten2.svg?branch=master)](https://travis-ci.org/joelcolucci/flatten2)[![Test Coverage](https://codeclimate.com/github/joelcolucci/flatten2/badges/coverage.svg)](https://codeclimate.com/github/joelcolucci/flatten2/coverage)
 Recursively flatten JavaScript objects.
 
 #### Example flattening
