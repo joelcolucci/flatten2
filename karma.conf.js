@@ -42,7 +42,7 @@ module.exports = function(config) {
 
     coverageReporter: {
       // specify a common output directory
-      dir: 'build/reports/coverage',
+      dir: '.',
       reporters: [
         // reporters not supporting the `file` property
         {type: 'lcov', subdir: 'report-lcov'}
