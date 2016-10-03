@@ -1,8 +1,8 @@
-eslint:
-  enabled: true
-  config:
-    config: ./.eslintrc.json
-
-ratings:
-   paths:
-   - "**.js"
+engines:
+  eslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
