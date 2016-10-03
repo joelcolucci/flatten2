@@ -1,8 +1,16 @@
 engines:
   eslint:
     enabled: true
+    config:
+        config: ./.eslintrc.json
   duplication:
     enabled: true
     config:
       languages:
       - javascript
+ratings:
+   paths:
+   - "**.js"
+
+exclude_paths:
+- tests/**/*
