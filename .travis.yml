@@ -15,3 +15,7 @@ before_script:
   - sleep 3
 install:
   - "npm install"
+addons:
+  code_climate:
+    repo_token:
+      secure: "AZ8XNyYCNcw2y1JQkg/xipbNpwCamRINupxlHIHCKDPExkKry9m8x2z8nh1pzJrKEa8kJqWjTf8pgoO5pB/vBlsiSO9mcHYPITsP4D7WgUCp25CX7BBh12vhhOdQltpgPU3K75sECF2wiPCPZA4Qa7Uz5APhZk0HimQUtOXCF90u2D3fgCzctEfgE84wzogl50nNswMwBTows/HJDV+G8qee6eOyWR8VS5knqXgPANU/OJvwRnlrSSl8nj9RAj8Q2aeBCmUURxDiymLLimZxZ+gpOQAOocfbtOc3HAIgCpWT41SNFit7NI/z/Nt2gjS4HwdiTrMOvCH5uVAP1Pf/npoTqoZyBMN8RolZuA5XH6RPYuGsBc8nQctsiJNJzb6O0la+QPW8ZxFll3NGmr5k/QBbkVkNgMmlgt6LGYy8lkD6WY3LPWKPw/VcaJmBOX23AZc/2RIm4bdseN92kxPBlebM3La+/VAdOwTQ0F2O5iXoyMbH7wsI0LYGps2DzEkRvJU6Vs14IQwhX8DJXYn1mX05hy9CRr3S8QsW8+iRWaXB5N3mz/y5Hx9Q1xXc1rcAUNAky+IBY0vGUbIZ2G/Xy+QulsuesG+KquDuU9sDxSaDwDAyYc+3AI7PAeYi4Ywvy2jREvg7sqGe5ChqArl5FQ0GmCQoC2IP+OWBV0TvpX4="
