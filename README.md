@@ -1,8 +1,28 @@
-# flatten2 [![Build Status](https://travis-ci.org/joelcolucci/flatten2.svg?branch=master)](https://travis-ci.org/joelcolucci/flatten2)[![Code Climate](https://codeclimate.com/github/joelcolucci/flatten2/badges/gpa.svg)](https://codeclimate.com/github/joelcolucci/flatten2)[![Test Coverage](https://codeclimate.com/github/joelcolucci/flatten2/badges/coverage.svg)](https://codeclimate.com/github/joelcolucci/flatten2/coverage)
+# flatten2 [![Build Status](https://travis-ci.org/joelcolucci/flatten2.svg?branch=master)](https://travis-ci.org/joelcolucci/flatten2) [![Code Climate](https://codeclimate.com/github/joelcolucci/flatten2/badges/gpa.svg)](https://codeclimate.com/github/joelcolucci/flatten2) [![Test Coverage](https://codeclimate.com/github/joelcolucci/flatten2/badges/coverage.svg)](https://codeclimate.com/github/joelcolucci/flatten2/coverage)
 Recursively flatten JavaScript objects.
 
 #### Example flattening
-Coming soon..
+Input
+```javascript
+{
+    "team": {
+        "name": "patriots",
+        "coach": "bill belichick",
+        "players": {
+            "quarterback": "tom brady"
+        }
+    }
+}
+```
+
+Output
+```javascript
+{
+    "team/name": "patriots",
+    "team/coach": "bill belichick",
+    "team/players/quarterback": "tom brady"
+}
+```
 
 #### Credit to..
 This is an adaption/refactoring of the flattening algorithm found in https://github.com/konklone/json.
