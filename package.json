@@ -1,6 +1,6 @@
 {
   "name": "flatten2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Flatten nested JavaScript objects",
   "main": "./dist/flatten2.js",
   "keywords": [
@@ -37,7 +37,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joelcolucci/flatten2issues"
+    "url": "https://github.com/joelcolucci/flatten2/issues"
   },
   "homepage": "https://github.com/joelcolucci/flatten2#readme"
 }
