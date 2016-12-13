@@ -1,43 +1,30 @@
-var gulp = require('gulp');
-
-var concat = require('gulp-concat');
-
-var Server = require('karma').Server;
+'use strict';
 
 
-/**
- * Run test once and exit
- */
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
-gulp.task('tests:run', function (done) {
-  new Server({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
-  }, done).start();
+
+const pkg = {
+  src: 'src',
+  dist: 'dist',
+  test: 'test'
+};
+
+const paths = {
+  js: [pkg.src + '/**/*.js'],
+  test: [pkg.test + '/spec/**/*.js'],
+  testRequire: [
+    pkg.test + '/mock/**/*.js',
+    pkg.test + '/spec/**/*.js'
+  ],
+  karma: 'karma.conf.js'
+};
+
+gulp.task('run:lint', function() {
+  return gulp.src(paths.js)
+    .pipe($.excludeGitignore())
+    .pipe($.eslint())
+    .pipe($.eslint.format())
+    .pipe($.eslint.failAfterError());
 });
-
-
-/**
- * Watch for file changes and re-run tests on each change
- */
-
-gulp.task('tests:watch', function (done) {
-  new Server({
-    configFile: __dirname + '/karma.conf.js'
-  }, done).start();
-});
-
-
-/**
- * Create dist
- */
-gulp.task('dist:build', function() {
-
-  return gulp.src(['./src/flatten2.js'])
-    .pipe(concat('flatten2.js'))
-    .pipe(gulp.dest('./dist'));
-
-});
-
-
-// TODO: Test dist https://karma-runner.github.io/1.0/dev/public-api.html
