@@ -2,7 +2,7 @@
   "name": "flatten2",
   "version": "0.1.1",
   "description": "Flatten nested JavaScript objects",
-  "main": "./dist/flatten2.js",
+  "main": "./dist/flatten2.min.js",
   "keywords": [
     "flatten",
     "nested",
