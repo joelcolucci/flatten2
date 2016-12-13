@@ -45,6 +45,18 @@ gulp.task('run:test', (done) => {
   }, done).start();
 });
 
+gulp.task('run:test:dist', (done) => {
+  new KarmaServer({
+    configFile: path.join(__dirname, paths.karma),
+    singleRun: true,
+    files: [
+      'node_modules/jquery/dist/jquery.js',
+      path.join(pkg.dist, '*.min.js'),
+      path.join(pkg.test, 'spec/**/*.js')
+    ],
+  }, done).start();
+});
+
 gulp.task('run:build', ['clean:dist'], () => {
   return gulp.src(paths.js)
     .pipe($.babel({
