@@ -1,9 +1,11 @@
 'use strict';
 
+const path = require('path');
 
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
+const KarmaServer = require('karma').Server;
 
 const pkg = {
   src: 'src',
@@ -27,4 +29,11 @@ gulp.task('run:lint', function() {
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError());
+});
+
+gulp.task('run:test', function(done) {
+  new KarmaServer({
+    configFile: path.join(__dirname, paths.karma),
+    singleRun: true
+  }, done).start();
 });

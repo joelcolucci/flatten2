@@ -29,32 +29,32 @@ describe('flatten2', function() {
     });
 
     it('should concat nested object keys', function() {
-      expect('patriots/coaches/head' in flattenedData).toBe(true);
-      expect('patriots/coaches/oline' in flattenedData).toBe(true);
+      expect('patriots/coaches/head' in flattenedData).to.be.true;
+      expect('patriots/coaches/oline' in flattenedData).to.be.true;
     });
 
     it('should maintain values for concatted nested keys', function() {
-      expect(flattenedData['patriots/coaches/head']).toBe('bill');
-      expect(flattenedData['patriots/coaches/oline']).toBe('scarnecchia');
+      expect(flattenedData['patriots/coaches/head']).to.equal('bill');
+      expect(flattenedData['patriots/coaches/oline']).to.equal('scarnecchia');
     });
 
     it('should maintain scalar data types', function() {
-      expect(typeof flattenedData.myNumber).toBe('number');
-      expect(typeof flattenedData.myBoolean).toBe('boolean');
-      expect(typeof flattenedData.myString).toBe('string');
-      expect(flattenedData.myNull).toBe(null);
+      expect(flattenedData.myNumber).to.be.a('number');
+      expect(flattenedData.myBoolean).to.be.a('boolean');
+      expect(flattenedData.myString).to.be.a('string');
+      expect(flattenedData.myNull).to.equal(null);
     });
 
     it('should maintain nested scalar data types', function() {
-      expect(typeof flattenedData['nestedTypes/myNumber']).toBe('number');
-      expect(typeof flattenedData['nestedTypes/myBoolean']).toBe('boolean');
-      expect(typeof flattenedData['nestedTypes/myString']).toBe('string');
-      expect(flattenedData['nestedTypes/myNull']).toBe(null);
+      expect(flattenedData['nestedTypes/myNumber']).to.be.a('number');
+      expect(flattenedData['nestedTypes/myBoolean']).to.be.a('boolean');
+      expect(flattenedData['nestedTypes/myString']).to.be.a('string');
+      expect(flattenedData['nestedTypes/myNull']).to.equal(null);
     });
 
     it('should flatten all object values', function() {
-      expect(isFlattened(flattenedData)).toBe(true);
-      expect(isFlattened(data)).toBe(false);
+      expect(isFlattened(flattenedData)).to.be.true;
+      expect(isFlattened(data)).to.be.false;
     });
 
   });
@@ -97,7 +97,7 @@ describe('flatten2', function() {
         }
       }
 
-      expect(isAllFlattened).toBe(true);
+      expect(isAllFlattened).to.be.true;
     });
 
   });
@@ -118,7 +118,7 @@ describe('flatten2', function() {
     it('should concat args', function() {
       var keyPath = flatten2._createKeyPath(PATH, KEY, DELIMITER);
 
-      expect(keyPath).toBe('hello/world/');
+      expect(keyPath).to.equal('hello/world/');
     });
 
   });
@@ -137,7 +137,7 @@ describe('flatten2', function() {
     it('should remove right most char if delimiter', function() {
       var strippedPath = flatten2._stripRight(STR, DELIMITER);
 
-      expect(strippedPath).toBe('hello/world');
+      expect(strippedPath).to.equal('hello/world');
     });
 
     it('should return original string if right most char is not delimter', function() {
@@ -145,7 +145,7 @@ describe('flatten2', function() {
 
       var strippedPath = flatten2._stripRight(STR, notUsedChar);
 
-      expect(strippedPath).toBe('hello/world/');
+      expect(strippedPath).to.equal('hello/world/');
     });
 
   });
@@ -165,19 +165,19 @@ describe('flatten2', function() {
     });
 
     it('should return true when passed number', function() {
-      expect(flatten2._isScalar(scalars.myNumber)).toBe(true);
+      expect(flatten2._isScalar(scalars.myNumber)).to.be.true;
     });
 
     it('should return true when passed boolean', function() {
-      expect(flatten2._isScalar(scalars.myBoolean)).toBe(true);
+      expect(flatten2._isScalar(scalars.myBoolean)).to.be.true;
     });
 
     it('should return true when passed string', function() {
-      expect(flatten2._isScalar(scalars.myString)).toBe(true);
+      expect(flatten2._isScalar(scalars.myString)).to.be.true;
     });
 
     it('should return true when passed null', function() {
-      expect(flatten2._isScalar(scalars.myNull)).toBe(true);
+      expect(flatten2._isScalar(scalars.myNull)).to.be.true;
     });
 
   });
@@ -199,15 +199,15 @@ describe('flatten2', function() {
     it('should return true when passed array', function() {
       var myArray = [];
 
-      expect(flatten2._isArray(myArray)).toBe(true);
+      expect(flatten2._isArray(myArray)).to.be.true;
     });
 
     it('should return false when passed scalar or object', function() {
-      expect(flatten2._isArray(scalars.myNumber)).toBe(false);
-      expect(flatten2._isArray(scalars.myBoolean)).toBe(false);
-      expect(flatten2._isArray(scalars.myString)).toBe(false);
-      expect(flatten2._isArray(scalars.myNull)).toBe(false);
-      expect(flatten2._isArray({})).toBe(false);
+      expect(flatten2._isArray(scalars.myNumber)).to.be.false;
+      expect(flatten2._isArray(scalars.myBoolean)).to.be.false;
+      expect(flatten2._isArray(scalars.myString)).to.be.false;
+      expect(flatten2._isArray(scalars.myNull)).to.be.false;
+      expect(flatten2._isArray({})).to.be.false;
     });
 
   });
@@ -229,15 +229,15 @@ describe('flatten2', function() {
     it('should return true when passed object', function() {
       var myObject = {};
 
-      expect(flatten2._isObject(myObject)).toBe(true);
+      expect(flatten2._isObject(myObject)).to.be.true;
     });
 
     it('should return false when passed scalar or array', function() {
-      expect(flatten2._isObject(scalars.myNumber)).toBe(false);
-      expect(flatten2._isObject(scalars.myBoolean)).toBe(false);
-      expect(flatten2._isObject(scalars.myString)).toBe(false);
-      expect(flatten2._isObject(scalars.myNull)).toBe(false);
-      expect(flatten2._isObject([])).toBe(false);
+      expect(flatten2._isObject(scalars.myNumber)).to.be.false;
+      expect(flatten2._isObject(scalars.myBoolean)).to.be.false;
+      expect(flatten2._isObject(scalars.myString)).to.be.false;
+      expect(flatten2._isObject(scalars.myNull)).to.be.false;
+      expect(flatten2._isObject([])).to.be.false;
     });
 
   });

@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Thu Sep 22 2016 20:14:06 GMT-0400 (EDT)
+// Generated on Mon Dec 12 2016 19:38:19 GMT-0500 (EST)
 
 module.exports = function(config) {
   config.set({
@@ -10,15 +10,14 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
       'node_modules/jquery/dist/jquery.js',
-      'src/vendor/**/*.js',
       'src/*.js',
-      'tests/**/*.js'
+      'test/**/*.js'
     ],
 
 
@@ -30,25 +29,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.js': ['coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress'],
 
-
-    coverageReporter: {
-      // specify a common output directory
-      dir: '.',
-      reporters: [
-        // reporters not supporting the `file` property
-        {type: 'lcov', subdir: 'report-lcov'}
-
-      ]
-    },
 
     // web server port
     port: 9876,
@@ -71,12 +59,6 @@ module.exports = function(config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
 
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
