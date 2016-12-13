@@ -23,7 +23,7 @@ const paths = {
   karma: 'karma.conf.js'
 };
 
-gulp.task('run:lint', function() {
+gulp.task('run:lint', () => {
   return gulp.src(paths.js)
     .pipe($.excludeGitignore())
     .pipe($.eslint())
@@ -31,7 +31,7 @@ gulp.task('run:lint', function() {
     .pipe($.eslint.failAfterError());
 });
 
-gulp.task('run:test', function(done) {
+gulp.task('run:test', (done) => {
   new KarmaServer({
     configFile: path.join(__dirname, paths.karma),
     singleRun: true
