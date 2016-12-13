@@ -47,6 +47,9 @@ gulp.task('run:test', (done) => {
 
 gulp.task('run:build', ['clean:dist'], () => {
   return gulp.src(paths.js)
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
     .pipe($.minify({
       ext: {
         src: '.debug.js',

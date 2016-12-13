@@ -13,11 +13,13 @@
     "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "eslint": "^3.7.0",
     "eslint-config-google": "^0.6.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.1.1",
     "gulp-load-plugins": "^1.4.0",
