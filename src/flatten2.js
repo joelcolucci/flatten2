@@ -52,17 +52,9 @@ flatten2.flatten = function(obj, path) {
  * @return {array} - return array of flattened objects
  */
 flatten2.flattenMany = function(data) {
-  var flattenedObjects = [];
-
-  for (var i = 0; i < data.length; i++) {
-    var currentObject = data[i];
-
-    var flatObject = flatten2.flatten(currentObject);
-
-    flattenedObjects.push(flatObject);
-  }
-
-  return flattenedObjects;
+  return data.map((obj) => {
+    return flatten2.flatten(obj);
+  });
 };
 
 /**
