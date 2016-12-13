@@ -1,7 +1,7 @@
 {
   "name": "flatten2",
   "description": "Flatten nested JavaScript objects",
-  "main": "./dist/flatten2.js",
+  "main": "./dist/flatten2.min.js",
   "authors": [
     "Joel Colucci"
   ],
