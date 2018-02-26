@@ -1,50 +1,33 @@
 {
   "name": "flatten2",
   "version": "0.2.0",
-  "description": "Flatten nested JavaScript objects",
-  "main": "./dist/flatten2.min.js",
+  "description": "Recursively flatten JavaScript objects",
   "keywords": [
     "flatten",
     "nested",
     "objects",
     "recursion"
   ],
+  "homepage": "https://github.com/joelcolucci/flatten2",
+  "bugs": {
+    "url": "https://github.com/joelcolucci/flatten2/issues"
+  },
+  "main": "./dist/flatten2.js",
+  "author": "Joel Colucci",
+  "scripts": {
+    "gulp": "./node_modules/gulp-cli/bin/gulp.js"
+  },
   "dependencies": {
     "jquery": "^3.1.1"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.18.0",
-    "chai": "^3.5.0",
-    "del": "^2.2.2",
-    "eslint": "^3.7.0",
-    "eslint-config-google": "^0.6.0",
+    "del": "^3.0.0",
+    "eslint": "^4.18.1",
+    "eslint-config-google": "^0.9.1",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^3.0.1",
-    "gulp-exclude-gitignore": "^1.1.1",
-    "gulp-load-plugins": "^1.4.0",
-    "gulp-minify": "0.0.14",
-    "karma": "^1.3.0",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.3.0",
-    "mocha": "^3.2.0"
+    "gulp-cli": "^2.0.1",
+    "gulp-concat": "^2.6.1",
+    "rollup": "^0.56.3"
   },
-  "scripts": {
-    "test": "./node_modules/.bin/gulp run:test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joelcolucci/flatten2.git"
-  },
-  "author": {
-    "name": "Joel Colucci",
-    "url": "http://joelcolucci.com"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joelcolucci/flatten2/issues"
-  },
-  "homepage": "https://github.com/joelcolucci/flatten2#readme"
+  "license": "MIT"
 }
