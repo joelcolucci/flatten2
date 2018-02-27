@@ -15,18 +15,22 @@
   "main": "./dist/flatten2.js",
   "author": "Joel Colucci",
   "scripts": {
-    "gulp": "./node_modules/gulp-cli/bin/gulp.js"
+    "gulp": "./node_modules/gulp-cli/bin/gulp.js",
+    "test": "jest"
   },
   "dependencies": {
+    "babel-preset-env": "^1.6.1",
     "jquery": "^3.1.1"
   },
   "devDependencies": {
+    "babel-jest": "^22.4.1",
     "del": "^3.0.0",
     "eslint": "^4.18.1",
     "eslint-config-google": "^0.9.1",
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",
+    "jest": "^22.4.2",
     "rollup": "^0.56.3"
   },
   "license": "MIT"
