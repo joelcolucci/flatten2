@@ -18,9 +18,7 @@
     "gulp": "./node_modules/gulp-cli/bin/gulp.js",
     "test": "jest"
   },
-  "dependencies": {
-    "jquery": "^3.1.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-jest": "^22.4.1",
     "babel-preset-env": "^1.6.1",
