@@ -1,6 +1,6 @@
 {
   "name": "flatten2",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Recursively flatten JavaScript objects",
   "keywords": [
     "flatten",
