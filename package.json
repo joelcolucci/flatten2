@@ -30,7 +30,7 @@
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",
-    "jest": "^22.4.2",
+    "jest": "^22.4.3",
     "rollup": "^0.56.3"
   },
   "license": "MIT"
