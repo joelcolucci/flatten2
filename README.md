@@ -3,6 +3,8 @@
 
 An adaption/refactoring of the flattening algorithm found in https://github.com/konklone/json.
 
+Zero dependencies.
+
 ## Installation
 ```
 # NPM
@@ -12,7 +14,7 @@ npm install flatten2 --save
 yarn add flatten2
 ```
 
-## Example Output
+## Example Input/Output
 Input
 ```javascript
 {
@@ -38,20 +40,24 @@ Output
 ## Getting started
 ### Flatten a single object
 ```javascript
+import { flatten } from 'flatten2';
+
 var myObject = {...}
 
-var myFlattenedObject = flatten2.flatten(myObject);
+var myFlattenedObject = flatten(myObject);
 ```
 
 ### Flatten each object within an Array
 ```javascript
+import { flattenMany } from 'flatten2';
+
 var myArrayOfObjects = [
     {...},
     {...},
     {...}
 ];
 
-var myArrayOfFlattenedObjects = flatten2.flattenMany(myArrayOfObjects);
+var myArrayOfFlattenedObjects = flattenMany(myArrayOfObjects);
 ```
 
 ## API Reference
@@ -61,4 +67,4 @@ Coming soon..
 Coming soon..
 
 ## License
-MIT License Copyright (c) 2016 Joel Colucci
+MIT License Copyright (c) 2018 Joel Colucci
