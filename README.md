@@ -1,8 +1,6 @@
 # flatten2
 > Recursively flatten JavaScript objects.
 
-An adaption/refactoring of the flattening algorithm found in https://github.com/konklone/json.
-
 Zero dependencies.
 
 ## Installation
